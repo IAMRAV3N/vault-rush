@@ -1,0 +1,20 @@
+[package]
+name = "vault_rush"
+version = "0.1.0"
+description = "Vault Rush — Solana Blitz v10 Entertainment Finance game. VRF pack opening + Ephemeral Rollup skill trading run."
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+idl-build = ["anchor-lang/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "1.0.2", features = ["init-if-needed"] }
+ephemeral-rollups-sdk = { version = "=0.18.0", features = ["anchor", "vrf"] }
