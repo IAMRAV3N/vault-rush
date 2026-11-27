@@ -256,11 +256,52 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
 .wopt .st{font-size:12px;font-weight:600;color:var(--ink2)}
 .wopt .st.ok{color:var(--green-dark)}
 
+/* ---------- New feature panels ---------- */
+.gallery-card{grid-column:span 7;animation:rise .45s var(--ease) .3s both}
+.history-card{grid-column:span 5;animation:rise .45s var(--ease) .36s both}
+.ohlc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface2);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;margin-top:12px}
+.ohlc .cell{padding:10px 16px;min-width:0}
+.ohlc .cell+.cell{border-left:1px solid var(--line)}
+.ohlc .k{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.ohlc .v{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:16px;margin-top:2px}
+.livepnl{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--green-soft);border:1px solid var(--line);border-radius:var(--r-md);padding:11px 16px}
+.livepnl .k{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.livepnl .v{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:19px}
+.timer.warn{color:var(--red);animation:pulse 1s ease-in-out infinite}
+.timerwarn{margin-top:6px;font-size:12.5px;font-weight:700;color:var(--red);text-align:right}
+.fairnote{margin-top:12px;font-size:13px;color:var(--ink2);background:var(--gold-soft);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 13px;text-align:left;line-height:1.5}
+.fairnote strong{color:var(--gold-dark)}
+.oddsbig{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.oddsbig .odd{border:1px solid var(--line);background:var(--surface2);border-radius:var(--r-sm);padding:10px 12px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.oddsbig .odd .on{font-weight:700;font-size:13.5px}
+.oddsbig .odd .ov{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:14px;color:var(--gold-dark)}
+.boardfilters{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.myrank{margin-top:12px;font-size:14px;font-weight:600;background:var(--surface2);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 13px}
+.myrank strong{color:var(--gold-dark)}
+.gallerystats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.gstat{border:1px solid var(--line);background:var(--surface2);border-radius:var(--r-md);padding:12px 14px;min-width:0}
+.gstat .k{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.gstat .v{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:17px;margin-top:3px;overflow-wrap:anywhere}
+.gstat .v.plain{font-family:"Archivo",sans-serif;font-size:14.5px;line-height:1.35}
+.grouphead{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:6px;padding-top:10px;border-top:1px solid var(--line)}
+.grouphead:first-child{border-top:none;padding-top:0;margin-top:0}
+.grouphead .gn{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px}
+.grouphead .gc{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink2);font-weight:700}
+.mini .sharemini{margin-top:9px}
+.historylist{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.historylist li{background:var(--surface2);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px}
+.historylist li.best{border-color:var(--gold);background:var(--gold-soft)}
+.historylist .hrow{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.historylist .hscore{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:16px}
+.historylist .hmeta{font-size:12.5px;color:var(--ink2);margin-top:3px;line-height:1.5}
+.besttag{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#171106;border-radius:999px;padding:3px 8px}
+.copiednote{font-size:12.5px;font-weight:700;color:var(--green-dark);min-height:18px;margin-top:8px}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1020px){
   .hero-panel{grid-template-columns:1fr}
   .walletcard{border-left:none;border-top:1px solid var(--vault-line)}
-  .terminal,.packs,.board-card,.feed-card{grid-column:span 12}
+  .terminal,.packs,.board-card,.feed-card,.gallery-card,.history-card{grid-column:span 12}
   .how{grid-template-columns:1fr;gap:16px}
 }
 @media (max-width:640px){
@@ -290,6 +331,11 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
   canvas#chart{height:190px}
   table.board th:nth-child(4),table.board td:nth-child(4){display:none}
   .collection{grid-template-columns:1fr 1fr}
+  .gallerystats{grid-template-columns:1fr}
+  .ohlc{grid-template-columns:1fr 1fr}
+  .ohlc .cell:nth-child(3){border-left:none;border-top:1px solid var(--line)}
+  .ohlc .cell:nth-child(4){border-top:1px solid var(--line)}
+  .oddsbig{grid-template-columns:1fr}
   .card{padding:20px}
 }
 </style>
@@ -308,6 +354,7 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
     </div>
     <div class="topactions">
       <span class="netpill"><span class="dot pulse" aria-hidden="true"></span> Devnet · Program live</span>
+      <button class="btn ghost sm" id="soundBtn" type="button" aria-pressed="true">Sound on</button>
       <button class="btn wallet" id="walletBtn" type="button">Connect wallet</button>
     </div>
   </header>
@@ -319,7 +366,7 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
         <p class="emblem-caption">The Vault Emblem<span>Gold · Sealed · Onchain</span></p>
       </div>
       <h2>Open a <span class="hl-gold">pack</span>. Trade the <span class="hl-green">rush</span>. <em>Top the board.</em></h2>
-      <p class="lede">Open a relic pack with a verifiable random draw, then trade a fast moving index for 60 seconds. Relic value plus trading profit is your <strong class="hl-green">score</strong> — settled onchain.</p>
+      <p class="lede">Open a relic pack with a verifiable random draw, then trade a fast moving index for 60 seconds. Relic value plus trading profit is your <strong class="hl-green">score</strong>, settled onchain.</p>
       <div class="herocta">
         <a class="btn primary" href="#arena">Play the arena</a>
         <a class="btn ghost" href="#how">How it works</a>
@@ -335,7 +382,7 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
         <span class="dot off" id="walletDot" aria-hidden="true" style="margin-top:6px"></span>
         <div class="txt">
           <div class="t1" id="walletTitle">No wallet connected</div>
-          <div class="t2" id="walletDetail">Connect to play live on devnet. Guest mode is look only — packs and runs are signed by your wallet.</div>
+          <div class="t2" id="walletDetail">Connect to play live on devnet. Guest mode is look only, packs and runs are signed by your wallet.</div>
           <div class="wallet-addr" id="walletAddr" hidden></div>
         </div>
       </div>
@@ -372,9 +419,16 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
       <div class="pricerow">
         <div><div class="eyebrow">VAULT index</div><div class="price" id="price">100.00</div></div>
         <div class="pricechg" id="priceChg">▲ 0.0%</div>
-        <div class="timerwrap"><div class="eyebrow">Time left</div><div class="timer" id="timer">60.0</div></div>
+        <div class="timerwrap"><div class="eyebrow">Time left</div><div class="timer" id="timer">60.0</div><div class="timerwarn" id="timerWarn" hidden>Final 10 seconds. Close your position now.</div></div>
       </div>
       <canvas id="chart" role="img" aria-label="Live price chart for the VAULT index"></canvas>
+      <div class="ohlc" aria-label="Price stats for this run">
+        <div class="cell"><div class="k">Open</div><div class="v" id="ohlcOpen">100.00</div></div>
+        <div class="cell"><div class="k">High</div><div class="v" id="ohlcHigh">100.00</div></div>
+        <div class="cell"><div class="k">Low</div><div class="v" id="ohlcLow">100.00</div></div>
+        <div class="cell"><div class="k">Close</div><div class="v" id="ohlcClose">100.00</div></div>
+      </div>
+      <div class="livepnl"><span class="k">Live profit and loss</span><span class="v" id="livePnl">0 credits</span></div>
       <div class="ticker"><span class="tick-dot" aria-hidden="true">◆</span><span id="tickerText">Arena is calm. Start a run to wake the market.</span></div>
       <div class="acct">
         <div class="cell"><div class="k">Cash</div><div class="v" id="cash">10,000</div></div>
@@ -394,6 +448,8 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
         <button class="btn red" id="sellBtn" type="button" disabled>Sell VAULT</button>
       </div>
       <div class="runrow"><button class="btn gold" id="runBtn" type="button">Start 60 second run</button></div>
+      <div class="runrow"><button class="btn ghost" id="shareRunBtn" type="button" hidden>Share last run result</button></div>
+      <div class="copiednote" id="shareNote" role="status" aria-live="polite"></div>
       <p class="runmsg" id="runMsg">Connect a wallet to play live. Your score is your net worth at the bell, relics included.</p>
     </section>
 
@@ -403,20 +459,47 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
       <div class="packstage" id="packStage">
         <div class="big">One pack. Four rarities.</div>
         <div class="small">Odds are set by the program itself, from the oracle randomness.</div>
-        <div class="odds" aria-label="Rarity odds"><span>Common 60%</span><span>Rare 25%</span><span>Epic 12%</span><span>Legendary 4%</span></div>
+        <div class="odds" aria-label="Rarity odds"><span>Common 60 percent</span><span>Rare 25 percent</span><span>Epic 12 percent</span><span>Legendary 4 percent</span></div>
         <button class="btn gold" id="packBtn" type="button">Open pack · VRF draw</button>
         <div class="proof mono" id="proof">The VRF randomness behind your draw appears here, read from your player account.</div>
       </div>
-      <div class="collection-head">
-        <h4>Your collection</h4>
-        <p class="sub">Total relic value: <strong class="mono" id="relicTotal">0</strong> credits — counted in every score.</p>
+      <div class="oddsbig" aria-label="Pack odds in full">
+        <div class="odd"><span class="on">Common</span><span class="ov">60 percent</span></div>
+        <div class="odd"><span class="on">Rare</span><span class="ov">25 percent</span></div>
+        <div class="odd"><span class="on">Epic</span><span class="ov">12 percent</span></div>
+        <div class="odd"><span class="on">Legendary</span><span class="ov">4 percent</span></div>
+      </div>
+      <p class="fairnote"><strong>Fair draw note.</strong> Rarity comes from onchain VRF randomness requested from MagicBlock. The oracle callback writes the result to your player account, so nobody can pick or change the result in the browser.</p>
+    </section>
+
+    <section class="card gallery-card" aria-label="Relic collection gallery">
+      <div class="cardhead"><h3>Relic collection gallery</h3><span class="tag">Saved in this browser</span></div>
+      <p class="sub">Every relic you have opened, grouped by rarity. Your collection is saved in this browser and restored when you return.</p>
+      <div class="gallerystats">
+        <div class="gstat"><div class="k">Total collection value</div><div class="v"><span id="relicTotal">0</span> credits</div></div>
+        <div class="gstat"><div class="k">Best relic</div><div class="v plain" id="bestRelic">No relics yet</div></div>
+        <div class="gstat"><div class="k">Counts by rarity</div><div class="v plain" id="rarityCounts">Common 0 · Rare 0 · Epic 0 · Legendary 0</div></div>
       </div>
       <div class="collection" id="collection"><div class="empty">No relics yet. Your first pack is waiting above.</div></div>
+      <div class="copiednote" id="galleryShareNote" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card history-card" aria-label="Run history">
+      <div class="cardhead"><h3>Run history</h3><button class="btn ghost sm" id="clearHistoryBtn" type="button">Clear history</button></div>
+      <p class="sub">Each finished 60 second run, with score, profit, date and time. Your best run is marked in gold.</p>
+      <ul class="historylist" id="runHistory"><li><div class="hmeta">No finished runs yet. Start a run in the trading terminal and your result will land here.</div></li></ul>
+      <div class="copiednote" id="historyShareNote" role="status" aria-live="polite"></div>
     </section>
 
     <section class="card board-card" aria-label="Leaderboard">
       <div class="cardhead"><h3>Arena leaderboard</h3><span class="tag">Season one</span></div>
       <p class="sub">Every player account on the devnet program, ranked by settled best score.</p>
+      <div class="boardfilters" role="group" aria-label="Leaderboard filters">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All time</button>
+        <button class="chip" type="button" data-filter="today" aria-pressed="false">Today</button>
+        <button class="chip" type="button" data-filter="top10" aria-pressed="false">Top 10</button>
+      </div>
+      <div class="myrank" id="myRank">Connect a wallet to see your own rank on the board.</div>
       <div class="boardwrap">
         <table class="board">
           <thead><tr><th scope="col">Rank</th><th scope="col">Trader</th><th scope="col" class="num">Best score</th><th scope="col" class="num">Packs</th></tr></thead>
@@ -426,7 +509,8 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
     </section>
 
     <section class="card feed-card" aria-label="Arena feed">
-      <div class="cardhead"><h3>Arena feed</h3><span class="tag green">Your moves</span></div>
+      <div class="cardhead"><h3>Live activity feed</h3><span class="tag green">Newest first</span></div>
+      <p class="sub">The latest pack openings, finished runs and leaderboard changes, each with its time.</p>
       <ul class="feed" id="feed"><li><span>Welcome to Vault Rush. Open a pack or start a run.</span><span class="t">now</span></li></ul>
     </section>
   </main>
@@ -434,7 +518,7 @@ footer .foot-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
   <section class="card how-panel" id="how" aria-label="How Vault Rush works onchain">
     <div class="cardhead"><h3>How it works onchain</h3><span class="tag">Solana devnet</span></div>
     <div class="how">
-      <div class="tcard"><span class="step">01</span><h4>Verifiable pack draws</h4><p>MagicBlock VRF decides the rarity and writes it to your player account onchain, so the odds can't be quietly edited.</p></div>
+      <div class="tcard"><span class="step">01</span><h4>Verifiable pack draws</h4><p>MagicBlock VRF decides the rarity and writes it to your player account onchain, so the odds cannot be quietly edited.</p></div>
       <div class="tcard"><span class="step">02</span><h4>Fast trading sessions</h4><p>Runs are delegated to an Ephemeral Rollup, where score updates confirm instantly, then committed back to base and settled exactly once.</p></div>
       <div class="tcard"><span class="step">03</span><h4>Private positions</h4><p>Your position size stays hidden during a run. The board reveals final results, not your live strategy.</p></div>
     </div>
@@ -464,8 +548,50 @@ var fmt=function(n){return Math.round(n).toLocaleString("en-US");};
 var fmt2=function(n){return n.toFixed(2);};
 
 /* ============ Game state ============ */
-var state={cash:10000,units:0,avgEntry:0,price:100,startPrice:100,history:[99.1,99.4,99.2,99.6,99.9,99.7,100.2,100.0,99.8,100.1,100.4,100.2,99.9,100.3,100.6,100.3,100.0,99.7,100.0,100.2,99.9,100.1,100.0],running:false,timeLeft:60,size:0.25,relics:[],relicValue:0,best:0,tickCount:0,runStartWorth:10000};
+var state={cash:10000,units:0,avgEntry:0,price:100,startPrice:100,history:[99.1,99.4,99.2,99.6,99.9,99.7,100.2,100.0,99.8,100.1,100.4,100.2,99.9,100.3,100.6,100.3,100.0,99.7,100.0,100.2,99.9,100.1,100.0],running:false,timeLeft:60,size:0.25,relics:[],relicValue:0,best:0,tickCount:0,runStartWorth:10000,runOpen:null,lastWarnSecond:-1};
 var boardRows=[]; /* live player accounts read from the program */
+var boardFilter="all";
+var boardSeen={}; /* owner base58 to last seen day stamp, for the Today filter */
+var runHistory=[];
+var lastRunResult=null;
+var soundOn=true;
+var audioCtx=null;
+function storeGet(key,fallback){try{var v=window.localStorage.getItem(key);return v?JSON.parse(v):fallback;}catch(e){return fallback;}}
+function storeSet(key,val){try{window.localStorage.setItem(key,JSON.stringify(val));}catch(e){}}
+function fmtDateTime(ts){var d=new Date(ts);return d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})+" at "+d.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});}
+function fmtTime(ts){return new Date(ts).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});}
+function dayStamp(ts){var d=new Date(ts);return d.getFullYear()+" "+(d.getMonth()+1)+" "+d.getDate();}
+(function loadLocal(){
+  var savedRelics=storeGet("vr_relics_v1",[]);
+  if(Array.isArray(savedRelics)){savedRelics.forEach(function(r){if(r&&r.name&&r.rarity){state.relics.push(r);state.relicValue+=Number(r.value)||0;}});}
+  var savedRuns=storeGet("vr_runs_v1",[]);
+  if(Array.isArray(savedRuns))runHistory=savedRuns.filter(function(r){return r&&typeof r.score==="number";});
+  if(runHistory.length)lastRunResult=runHistory[0];
+  boardSeen=storeGet("vr_board_seen_v1",{})||{};
+  soundOn=storeGet("vr_sound_v1",true)!==false;
+})();
+function saveRelics(){storeSet("vr_relics_v1",state.relics);}
+function saveRuns(){storeSet("vr_runs_v1",runHistory);}
+function beep(freq,dur,type){
+  if(!soundOn)return;
+  try{
+    if(!audioCtx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;audioCtx=new AC();}
+    if(audioCtx.state==="suspended")audioCtx.resume();
+    var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.type=type||"sine";o.frequency.value=freq||660;
+    g.gain.setValueAtTime(0.08,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+(dur||0.12));
+    o.connect(g);g.connect(audioCtx.destination);
+    o.start();o.stop(audioCtx.currentTime+(dur||0.12));
+  }catch(e){}
+}
+function copyText(text,noteEl){
+  function done(){if(noteEl){noteEl.textContent="Copied to your clipboard. Paste it anywhere to share.";setTimeout(function(){noteEl.textContent="";},2600);}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+  function fallback(){try{var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);}catch(e){}done();}
+}
+function shareRelicText(r){return "Vault Rush relic. I opened a "+r.rarity+" relic, "+r.name+", worth "+fmt(r.value)+" credits. My collection holds "+state.relics.length+" relics worth "+fmt(state.relicValue)+" credits in total.";}
+function shareRunText(r){return "Vault Rush run result. Score "+fmt(r.score)+" credits, profit "+(r.profit>=0?"up ":"down ")+fmt(Math.abs(r.profit))+" credits in a 60 second run. Played "+fmtDateTime(r.ts)+".";}
 var events=["Whale wallet sweeps the VAULT order book.","Arena crowd piles in. Momentum builds.","A rival dumps a huge position. Watch the dip.","Fresh liquidity lands on the index.","Commentators call a breakout. Volatility spikes.","Profit taking cools the run for a moment.","A relic whale just pulled a Legendary. Energy is up.","Shorts get squeezed. Price jumps hard."];
 var relicPool={Common:["Copper Compass","Harbor Token","Dusty Ledger Page","Brass Key","Salt Merchant Coin"],Rare:["Jade Abacus","Storm Chart","Silver Sextant","Ember Lantern","Tide Pearl"],Epic:["Obsidian Astrolabe","Golden Tide Bell","Sunken Crown Jewel","Phoenix Wax Seal","Starforge Ingot"],Legendary:["The First Vault Key","Crown of the Deep Vault","Map of the Lost Reserve","Heart of the Mint"]};
 /* Rarity indices exactly as the program writes them: 0 Common, 1 Rare, 2 Epic, 3 Legendary. */
@@ -473,11 +599,19 @@ var rarityByIndex=[{name:"Common",cls:"r-common",min:60,max:140},{name:"Rare",cl
 function secureRandom(){var a=new Uint32Array(1);window.crypto.getRandomValues(a);return a[0]/4294967296;}
 function secureInt(min,max){return Math.floor(min+secureRandom()*(max-min+1));}
 
-function feed(msg){var ul=$("feed");var li=document.createElement("li");var l=document.createElement("span");l.textContent=msg;var t=document.createElement("span");t.className="t";t.textContent=new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});li.appendChild(l);li.appendChild(t);ul.insertBefore(li,ul.firstChild);while(ul.children.length>9)ul.removeChild(ul.lastChild);}
+var feedStore=storeGet("vr_feed_v1",[]);
+function feed(msg){var ts=Date.now();feedStore.unshift({msg:msg,ts:ts});feedStore=feedStore.slice(0,20);storeSet("vr_feed_v1",feedStore);renderFeedItem(msg,ts,true);}
+function renderFeedItem(msg,ts,prepend){var ul=$("feed");if(!ul)return;var li=document.createElement("li");var l=document.createElement("span");l.textContent=msg;var t=document.createElement("span");t.className="t";t.textContent=fmtTime(ts);li.appendChild(l);li.appendChild(t);if(prepend&&ul.firstChild)ul.insertBefore(li,ul.firstChild);else ul.appendChild(li);while(ul.children.length>20)ul.removeChild(ul.lastChild);}
+function restoreFeed(){var ul=$("feed");if(!ul||!feedStore.length)return;ul.innerHTML="";feedStore.slice().reverse().forEach(function(item){renderFeedItem(item.msg,item.ts,true);});}
 function netWorth(){return state.cash+state.units*state.price+state.relicValue;}
-function renderAcct(){$("cash").textContent=fmt(state.cash);$("position").textContent=fmt(state.units)+" units";var pnl=state.units*(state.price-state.avgEntry);var el=$("pnl");if(state.units===0){el.textContent="0";el.className="v";}else{el.textContent=(pnl>=0?"▲ ":"▼ ")+fmt(Math.abs(pnl));el.className="v "+(pnl>=0?"up":"down");}$("networth").textContent=fmt(netWorth());$("bestScore").textContent=fmt(state.best);$("relicCount").textContent=String(state.relics.length);}
-function renderBoard(){var rows=boardRows.map(function(r){return{name:(wallet.publicKey&&r.owner===wallet.publicKey)?"You · "+shortKey(r.owner):shortKey(r.owner),score:r.score,packs:r.packs,me:!!(wallet.publicKey&&r.owner===wallet.publicKey)};});if(wallet.publicKey&&!rows.some(function(r){return r.me;})){rows.push({name:"You · "+shortKey(wallet.publicKey),score:Math.max(state.best,netWorth()),packs:state.relics.length,me:true});}rows.sort(function(a,b){return b.score-a.score;});var body=$("boardBody");body.innerHTML="";if(rows.length===0){var tr0=document.createElement("tr");var td0=document.createElement("td");td0.colSpan=4;td0.textContent="No player accounts found onchain yet. Connect a wallet and settle a run to take the first row.";td0.style.color="var(--ink2)";tr0.appendChild(td0);body.appendChild(tr0);return;}rows.forEach(function(r,i){var tr=document.createElement("tr");if(r.me)tr.className="me";[String(i+1),r.name,fmt(r.score),String(r.packs)].forEach(function(c,j){var td=document.createElement("td");if(j>=2)td.className="num";td.textContent=c;tr.appendChild(td);});body.appendChild(tr);});}
-function feedTx(label,sig){var ul=$("feed");var li=document.createElement("li");var l=document.createElement("span");l.appendChild(document.createTextNode(label+" · "));var a=document.createElement("a");a.className="txlink";a.href="https://explorer.solana.com/tx/"+sig+"?cluster=devnet";a.target="_blank";a.rel="noopener";a.textContent=sig.slice(0,8)+"…";l.appendChild(a);var t=document.createElement("span");t.className="t";t.textContent=new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});li.appendChild(l);li.appendChild(t);ul.insertBefore(li,ul.firstChild);while(ul.children.length>9)ul.removeChild(ul.lastChild);}
+function renderAcct(){$("cash").textContent=fmt(state.cash);$("position").textContent=fmt(state.units)+" units";var pnl=state.units*(state.price-state.avgEntry);var el=$("pnl");if(state.units===0){el.textContent="0";el.className="v";}else{el.textContent=(pnl>=0?"▲ ":"▼ ")+fmt(Math.abs(pnl));el.className="v "+(pnl>=0?"up":"down");}$("networth").textContent=fmt(netWorth());$("bestScore").textContent=fmt(state.best);$("relicCount").textContent=String(state.relics.length);renderOhlc();}
+function renderOhlc(){var data=state.history.length?state.history:[state.price];var open=state.running||state.runOpen!=null?(state.runOpen!=null?state.runOpen:state.startPrice):data[0];var hi=Math.max.apply(null,data.slice(-140));var lo=Math.min.apply(null,data.slice(-140));if(state.running){hi=Math.max(hi,state.price);lo=Math.min(lo,state.price);}var oe=$("ohlcOpen");if(!oe)return;oe.textContent=fmt2(open);$("ohlcHigh").textContent=fmt2(hi);$("ohlcLow").textContent=fmt2(lo);$("ohlcClose").textContent=fmt2(state.price);var live=netWorth()-state.runStartWorth;var lp=$("livePnl");if(!state.running&&state.tickCount===0){lp.textContent="0 credits";lp.className="v";}else{lp.textContent=(live>=0?"▲ ":"▼ ")+fmt(Math.abs(live))+" credits";lp.className="v "+(live>=0?"up":"down");}}
+function renderBoard(){var allRows=boardRows.map(function(r){return{owner:r.owner,name:(wallet.publicKey&&r.owner===wallet.publicKey)?"You · "+shortKey(r.owner):shortKey(r.owner),score:r.score,packs:r.packs,me:!!(wallet.publicKey&&r.owner===wallet.publicKey)};});if(wallet.publicKey&&!allRows.some(function(r){return r.me;})){allRows.push({owner:wallet.publicKey,name:"You · "+shortKey(wallet.publicKey),score:Math.max(state.best,netWorth()),packs:state.relics.length,me:true});}allRows.sort(function(a,b){return b.score-a.score;});allRows.forEach(function(r,i){r.rank=i+1;});var myRankEl=$("myRank");if(myRankEl){if(wallet.publicKey){var mine=allRows.filter(function(r){return r.me;})[0];myRankEl.innerHTML="";if(mine){var s1=document.createElement("span");s1.textContent="Your rank: ";var st=document.createElement("strong");st.textContent="#"+mine.rank+" of "+allRows.length;myRankEl.appendChild(s1);myRankEl.appendChild(st);myRankEl.appendChild(document.createTextNode(" with a best score of "+fmt(mine.score)+" credits. Your row is marked in gold below."));}else{myRankEl.textContent="Settle a run to claim your rank on the board.";}}else{myRankEl.textContent="Connect a wallet to see your own rank on the board.";}}
+var rows=allRows;
+if(boardFilter==="top10")rows=allRows.slice(0,10);
+if(boardFilter==="today"){var today=dayStamp(Date.now());rows=allRows.filter(function(r){return boardSeen[r.owner]===today||r.me;});}
+var body=$("boardBody");body.innerHTML="";if(rows.length===0){var tr0=document.createElement("tr");var td0=document.createElement("td");td0.colSpan=4;td0.textContent=boardFilter==="today"?"No board activity has been seen today yet. Refresh after a run settles and check again.":"No player accounts found onchain yet. Connect a wallet and settle a run to take the first row.";td0.style.color="var(--ink2)";tr0.appendChild(td0);body.appendChild(tr0);return;}rows.forEach(function(r){var tr=document.createElement("tr");if(r.me)tr.className="me";[String(r.rank),r.name,fmt(r.score),String(r.packs)].forEach(function(c,j){var td=document.createElement("td");if(j>=2)td.className="num";td.textContent=c;tr.appendChild(td);});body.appendChild(tr);});}
+function feedTx(label,sig){var ul=$("feed");var li=document.createElement("li");var l=document.createElement("span");l.appendChild(document.createTextNode(label+" · "));var a=document.createElement("a");a.className="txlink";a.href="https://explorer.solana.com/tx/"+sig+"?cluster=devnet";a.target="_blank";a.rel="noopener";a.textContent=sig.slice(0,8)+"…";l.appendChild(a);var t=document.createElement("span");t.className="t";t.textContent=new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});li.appendChild(l);li.appendChild(t);ul.insertBefore(li,ul.firstChild);while(ul.children.length>20)ul.removeChild(ul.lastChild);}
 
 var canvas=$("chart"),ctx=canvas.getContext("2d");
 function drawChart(){var dpr=window.devicePixelRatio||1;var w=canvas.clientWidth,h=canvas.clientHeight;if(!w)return;if(canvas.width!==Math.round(w*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);var data=state.history.slice(-90);if(data.length<2)data=[state.price,state.price];var min=Math.min.apply(null,data),max=Math.max.apply(null,data);var pad=(max-min)*0.18||2;min-=pad;max+=pad;var dark=window.matchMedia("(prefers-color-scheme: dark)").matches;ctx.strokeStyle=dark?"#26362c":"#dde3dc";ctx.lineWidth=1;for(var g=1;g<=3;g++){var gy=(h/4)*g;ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(w,gy);ctx.stroke();}var up=data[data.length-1]>=data[0];var lc=up?(dark?"#34c47c":"#0e7a4f"):(dark?"#ff7a6e":"#c23a2e");ctx.beginPath();data.forEach(function(p,i){var x=(i/(data.length-1))*(w-16)+8;var y=h-((p-min)/(max-min))*(h-24)-12;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.strokeStyle=lc;ctx.lineWidth=2.5;ctx.lineJoin="round";ctx.stroke();ctx.lineTo(w-8,h);ctx.lineTo(8,h);ctx.closePath();ctx.fillStyle=up?"rgba(52,196,124,.13)":"rgba(255,122,110,.13)";ctx.fill();var ly=h-((data[data.length-1]-min)/(max-min))*(h-24)-12;ctx.beginPath();ctx.arc(w-8,ly,4.5,0,Math.PI*2);ctx.fillStyle=lc;ctx.fill();}
@@ -487,28 +621,42 @@ var tickTimer=null,clockTimer=null,eventTimer=null;
 function tick(){state.tickCount++;var drift=(secureRandom()-0.485)*1.6;var shock=secureRandom()<0.045?(secureRandom()-0.42)*14:0;state.price=Math.max(12,state.price+drift+shock);state.history.push(state.price);renderPrice();drawChart();renderAcct();renderBoard();}
 function fireEvent(){var msg=events[secureInt(0,events.length-1)];$("tickerText").textContent=msg;state.price=Math.max(12,state.price+(secureRandom()-0.4)*9);feed("Market event. "+msg);}
 function setRunMsg(strongText,restText){var m=$("runMsg");m.innerHTML="";if(strongText){var s=document.createElement("strong");s.textContent=strongText;m.appendChild(s);}m.appendChild(document.createTextNode(restText||""));}
-function endRun(){state.running=false;clearInterval(tickTimer);clearInterval(clockTimer);clearInterval(eventTimer);tickTimer=clockTimer=eventTimer=null;$("buyBtn").disabled=true;$("sellBtn").disabled=true;$("timer").textContent="0.0";$("tickerText").textContent="Final bell. Submitting your score to the rollup…";var worth=netWorth();var gain=worth-state.runStartWorth;if(worth>state.best)state.best=worth;renderAcct();renderBoard();feed("Final bell. Net worth "+fmt(worth)+" credits across "+state.tickCount+" ticks.");finishRunOnchain(worth,gain);}
-function beginTrading(){state.running=true;state.timeLeft=60;state.tickCount=0;state.startPrice=state.price;state.runStartWorth=netWorth();$("buyBtn").disabled=false;$("sellBtn").disabled=false;$("runBtn").disabled=true;$("runBtn").textContent="Run in progress…";$("runMsg").textContent="You are live on the rollup. Trade the events, protect your cash, and be flat or green at the bell.";$("tickerText").textContent="The bell rings. VAULT is moving.";feed("Run is live on the Ephemeral Rollup at "+fmt2(state.price)+" per unit.");tickTimer=setInterval(tick,120);eventTimer=setInterval(fireEvent,7000);var last=Date.now();clockTimer=setInterval(function(){var now=Date.now();state.timeLeft-=(now-last)/1000;last=now;if(state.timeLeft<=0){$("timer").textContent="0.0";endRun();return;}$("timer").textContent=state.timeLeft.toFixed(1);},100);}
-function startRun(){if(state.running||chain.busy)return;if(!wallet.publicKey){feed("Connect a wallet first — runs are played live onchain.");openWalletModal();return;}if(!W3){$("runMsg").textContent="The Solana library did not load. Check your connection and reload the page.";return;}prepareRunOnchain();}
-function buy(){if(!state.running)return;var spend=state.cash*state.size;if(spend<1){$("runMsg").textContent="Cash is too low for that size. Sell a position or finish the run.";return;}var units=Math.floor(spend/state.price);if(units<1)return;var cost=units*state.price;state.avgEntry=state.units===0?state.price:((state.avgEntry*state.units)+cost)/(state.units+units);state.units+=units;state.cash-=cost;feed("Bought "+fmt(units)+" VAULT at "+fmt2(state.price)+".");renderAcct();renderBoard();}
-function sell(){if(!state.running)return;if(state.units<1){$("runMsg").textContent="No open position to sell. Buy first, then ride the move.";return;}var units=state.size>=1?state.units:Math.max(1,Math.floor(state.units*state.size));var proceeds=units*state.price;var pnl=units*(state.price-state.avgEntry);state.cash+=proceeds;state.units-=units;if(state.units===0)state.avgEntry=0;feed("Sold "+fmt(units)+" VAULT at "+fmt2(state.price)+", "+(pnl>=0?"▲ ":"▼ ")+fmt(Math.abs(pnl))+" on the trade.");renderAcct();renderBoard();}
+function endRun(){state.running=false;clearInterval(tickTimer);clearInterval(clockTimer);clearInterval(eventTimer);tickTimer=clockTimer=eventTimer=null;$("buyBtn").disabled=true;$("sellBtn").disabled=true;$("timer").textContent="0.0";$("timer").classList.remove("warn");var tw=$("timerWarn");if(tw)tw.hidden=true;$("tickerText").textContent="Final bell. Submitting your score to the rollup…";var worth=netWorth();var gain=worth-state.runStartWorth;if(worth>state.best)state.best=worth;beep(440,0.25,"triangle");setTimeout(function(){beep(880,0.3,"triangle");},180);
+var rec={score:Math.round(worth),profit:Math.round(gain),ts:Date.now()};
+runHistory.unshift(rec);runHistory=runHistory.slice(0,30);lastRunResult=rec;saveRuns();renderHistory();
+var sb=$("shareRunBtn");if(sb)sb.hidden=false;
+renderAcct();renderBoard();feed("Run finished. Score "+fmt(rec.score)+" credits, profit "+(rec.profit>=0?"up ":"down ")+fmt(Math.abs(rec.profit))+" credits.");finishRunOnchain(worth,gain);}
+function renderHistory(){var ul=$("runHistory");if(!ul)return;ul.innerHTML="";if(!runHistory.length){var li0=document.createElement("li");var m0=document.createElement("div");m0.className="hmeta";m0.textContent="No finished runs yet. Start a run in the trading terminal and your result will land here.";li0.appendChild(m0);ul.appendChild(li0);return;}
+var bestScore=Math.max.apply(null,runHistory.map(function(r){return r.score;}));
+runHistory.forEach(function(r){var li=document.createElement("li");var isBest=r.score===bestScore;if(isBest)li.className="best";var row=document.createElement("div");row.className="hrow";var sc=document.createElement("span");sc.className="hscore";sc.textContent=fmt(r.score)+" credits";row.appendChild(sc);if(isBest){var bt=document.createElement("span");bt.className="besttag";bt.textContent="Best run";row.appendChild(bt);}var meta=document.createElement("div");meta.className="hmeta";meta.textContent="Profit "+(r.profit>=0?"up ":"down ")+fmt(Math.abs(r.profit))+" credits · "+fmtDateTime(r.ts);var sh=document.createElement("button");sh.className="btn ghost sm sharemini";sh.type="button";sh.textContent="Share this run";sh.addEventListener("click",function(){copyText(shareRunText(r),$("historyShareNote"));beep(740,0.08);});li.appendChild(row);li.appendChild(meta);li.appendChild(sh);ul.appendChild(li);});}
+function beginTrading(){state.running=true;state.timeLeft=60;state.tickCount=0;state.startPrice=state.price;state.runOpen=state.price;state.lastWarnSecond=-1;var tw=$("timerWarn");if(tw)tw.hidden=true;var tm=$("timer");if(tm)tm.classList.remove("warn");state.runStartWorth=netWorth();beep(880,0.14,"triangle");$("buyBtn").disabled=false;$("sellBtn").disabled=false;$("runBtn").disabled=true;$("runBtn").textContent="Run in progress…";$("runMsg").textContent="You are live on the rollup. Trade the events, protect your cash, and be flat or green at the bell.";$("tickerText").textContent="The bell rings. VAULT is moving.";feed("Run is live on the Ephemeral Rollup at "+fmt2(state.price)+" per unit.");tickTimer=setInterval(tick,120);eventTimer=setInterval(fireEvent,7000);var last=Date.now();clockTimer=setInterval(function(){var now=Date.now();state.timeLeft-=(now-last)/1000;last=now;if(state.timeLeft<=0){$("timer").textContent="0.0";endRun();return;}$("timer").textContent=state.timeLeft.toFixed(1);if(state.timeLeft<=10){var tm=$("timer");tm.classList.add("warn");var tw=$("timerWarn");if(tw)tw.hidden=false;var sec=Math.ceil(state.timeLeft);if(sec!==state.lastWarnSecond){state.lastWarnSecond=sec;beep(520,0.09,"square");}}},100);}
+function startRun(){if(state.running||chain.busy)return;if(!wallet.publicKey){feed("Connect a wallet first, runs are played live onchain.");openWalletModal();return;}if(!W3){$("runMsg").textContent="The Solana library did not load. Check your connection and reload the page.";return;}prepareRunOnchain();}
+function buy(){if(!state.running)return;var spend=state.cash*state.size;if(spend<1){$("runMsg").textContent="Cash is too low for that size. Sell a position or finish the run.";return;}var units=Math.floor(spend/state.price);if(units<1)return;var cost=units*state.price;state.avgEntry=state.units===0?state.price:((state.avgEntry*state.units)+cost)/(state.units+units);state.units+=units;state.cash-=cost;beep(980,0.07);feed("Bought "+fmt(units)+" VAULT at "+fmt2(state.price)+".");renderAcct();renderBoard();}
+function sell(){if(!state.running)return;if(state.units<1){$("runMsg").textContent="No open position to sell. Buy first, then ride the move.";return;}var units=state.size>=1?state.units:Math.max(1,Math.floor(state.units*state.size));var proceeds=units*state.price;var pnl=units*(state.price-state.avgEntry);state.cash+=proceeds;state.units-=units;if(state.units===0)state.avgEntry=0;beep(620,0.07);feed("Sold "+fmt(units)+" VAULT at "+fmt2(state.price)+", "+(pnl>=0?"▲ ":"▼ ")+fmt(Math.abs(pnl))+" on the trade.");renderAcct();renderBoard();}
 
 var packFlow={polling:false,startedAt:0,packsBefore:0,cancelShown:false};
 function relicFromDraw(rarityIdx,randomness){var rarity=rarityByIndex[rarityIdx]||rarityByIndex[0];var names=relicPool[rarity.name];var pick=randomness&&randomness.length>4?randomness[4]:Math.floor(secureRandom()*256);var name=names[pick%names.length];var span=rarity.max-rarity.min+1;var roll=randomness&&randomness.length>6?((randomness[5]<<8)|randomness[6]):Math.floor(secureRandom()*65536);var value=rarity.min+(roll%span);return{name:name,rarity:rarity.name,cls:rarity.cls,value:value};}
 function hexOf(bytes,n){var s="";for(var i=0;i<Math.min(n,bytes.length);i++)s+=("0"+bytes[i].toString(16)).slice(-2);return s;}
-function showPackIdle(note){var stage=$("packStage");stage.innerHTML="";var big=document.createElement("div");big.className="big";big.textContent="One pack. Four rarities.";var small=document.createElement("div");small.className="small";small.textContent=note||"Odds are set by the program itself, from the oracle randomness.";var odds=document.createElement("div");odds.className="odds";["Common 60%","Rare 25%","Epic 12%","Legendary 4%"].forEach(function(t){var sp=document.createElement("span");sp.textContent=t;odds.appendChild(sp);});var btn=document.createElement("button");btn.className="btn gold";btn.type="button";btn.id="packBtn";btn.textContent="Open pack · VRF draw";btn.addEventListener("click",openPack);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="The VRF randomness behind your draw appears here, read from your player account.";stage.appendChild(big);stage.appendChild(small);stage.appendChild(odds);stage.appendChild(btn);stage.appendChild(proof);}
-function showPackPending(){var stage=$("packStage");stage.innerHTML="";var spin=document.createElement("div");spin.className="spinner";spin.setAttribute("aria-hidden","true");var big=document.createElement("div");big.className="big";big.textContent="Draw requested — waiting for the VRF callback";var note=document.createElement("div");note.className="pendingnote";note.id="packPendingNote";note.textContent="Your open_pack request is onchain and pending. This page is polling your player account until the oracle callback writes the rarity.";stage.appendChild(spin);stage.appendChild(big);stage.appendChild(note);var cancelBtn=document.createElement("button");cancelBtn.className="btn ghost";cancelBtn.type="button";cancelBtn.id="packCancelBtn";cancelBtn.textContent="Cancel stuck request (cancel_pack)";cancelBtn.hidden=true;cancelBtn.addEventListener("click",cancelPackFlow);stage.appendChild(cancelBtn);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="Pending onchain · the VRF fee is not refunded if you cancel before the callback lands.";stage.appendChild(proof);}
-function showPackReveal(player){var relic=relicFromDraw(player.lastRarity,player.lastRandomness);state.relics.push(relic);state.relicValue+=relic.value;var stage=$("packStage");stage.innerHTML="";var card=document.createElement("div");card.className="relic reveal";var badge=document.createElement("span");badge.className="rarity "+relic.cls;badge.textContent=relic.rarity;var rn=document.createElement("div");rn.className="rname";rn.textContent=relic.name;var rk=document.createElement("div");rk.className="rkind";rk.textContent="Vault Rush relic · drawn by MagicBlock VRF";var rv=document.createElement("div");rv.className="rval";rv.textContent=fmt(relic.value)+" credits";card.appendChild(badge);card.appendChild(rn);card.appendChild(rk);card.appendChild(rv);stage.appendChild(card);var btn=document.createElement("button");btn.className="btn gold";btn.type="button";btn.textContent="Open another pack · VRF draw";btn.addEventListener("click",openPack);stage.appendChild(btn);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="VRF randomness · 0x"+hexOf(player.lastRandomness,16)+"… · rarity index "+player.lastRarity+" · pack #"+player.packsOpened+" on your player account";stage.appendChild(proof);feed("VRF callback landed. "+relic.rarity+" relic: "+relic.name+", worth "+fmt(relic.value)+" credits.");renderCollection();renderAcct();renderBoard();}
-function pollPackCallback(){if(!packFlow.polling)return;var elapsed=Date.now()-packFlow.startedAt;var note=$("packPendingNote");if(note)note.textContent="Waiting for the VRF callback — "+Math.round(elapsed/1000)+"s elapsed. Polling your player account on devnet.";if(elapsed>45000&&!packFlow.cancelShown){packFlow.cancelShown=true;var cb=$("packCancelBtn");if(cb)cb.hidden=false;}fetchPlayer().then(function(p){if(!packFlow.polling)return;if(p&&!p.pending&&p.packsOpened>packFlow.packsBefore){packFlow.polling=false;renderChain();showPackReveal(p);refreshBoard();return;}if(elapsed>150000){packFlow.polling=false;var cb2=$("packCancelBtn");if(cb2)cb2.hidden=false;if(note)note.textContent="No callback after 150 seconds — the request looks stuck. Use cancel_pack below to clear the pending request, then draw again. The VRF fee is not refunded.";feed("Pack request timed out with no callback. cancel_pack is available in the pack panel.");return;}setTimeout(pollPackCallback,3000);}).catch(function(){if(packFlow.polling)setTimeout(pollPackCallback,4000);});}
-function openPack(){if(packFlow.polling||chain.busy)return;if(!wallet.publicKey){feed("Connect a wallet first — pack draws are signed and settled onchain.");openWalletModal();return;}if(!W3){var p=$("proof");if(p)p.textContent="The Solana library did not load. Check your connection and reload the page.";return;}requestPackOnchain();}
-function requestPackOnchain(){chain.busy=true;ensurePlayer().then(function(){return fetchPlayer();}).then(function(p){if(p&&p.pending){packFlow.packsBefore=p.packsOpened;packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();chain.busy=false;pollPackCallback();throw new Error("__pending__");}packFlow.packsBefore=p?p.packsOpened:0;var seed=Math.floor(secureRandom()*256);var conn=baseConnection();var owner=pk(wallet.publicKey);var data=new Uint8Array(9);data.set(DISC.openPack,0);data[8]=seed;var ix=makeIx([[owner,true,true],[chain.playerPda,false,true],[pk(ORACLE_QUEUE),false,true],[programIdentityPda(),false,false],[pk(VRF_PROGRAM),false,false],[pk(SLOT_HASHES),false,false],[pk(SYSTEM_PROGRAM),false,false]],data);feed("Requesting a pack draw — approve open_pack in your wallet (high priority VRF, 0.0008 SOL fee).");return sendIx(conn,ix,"open_pack",true);}).then(function(){packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();chain.busy=false;pollPackCallback();}).catch(function(err){chain.busy=false;if(err&&err.message==="__pending__")return;var msg=friendlyErr(err);feed("Pack draw failed: "+msg);var stage=$("packStage");if(stage&&!packFlow.polling)showPackIdle("Last draw did not go through: "+msg);});}
-function cancelPackFlow(){if(chain.busy)return;chain.busy=true;var conn=baseConnection();var owner=pk(wallet.publicKey);var ix=makeIx([[owner,true,true],[chain.playerPda,false,true]],new Uint8Array(DISC.cancelPack));feed("Clearing the stuck request — approve cancel_pack in your wallet.");sendIx(conn,ix,"cancel_pack",true).then(function(){packFlow.polling=false;chain.busy=false;return fetchPlayer();}).then(function(){renderChain();showPackIdle("Pending request cleared onchain. You can draw again whenever you are ready.");feed("Pending pack request cancelled onchain.");}).catch(function(err){chain.busy=false;feed("cancel_pack failed: "+friendlyErr(err));});}
-function renderCollection(){var box=$("collection");box.innerHTML="";if(state.relics.length===0){var e=document.createElement("div");e.className="empty";e.textContent="No relics yet. Your first pack is waiting above.";box.appendChild(e);}else{state.relics.slice().reverse().forEach(function(r){var d=document.createElement("div");d.className="mini";var b=document.createElement("span");b.className="rarity "+r.cls;b.textContent=r.rarity;var n=document.createElement("div");n.className="mn";n.textContent=r.name;var v=document.createElement("div");v.className="mv";v.textContent=fmt(r.value)+" credits";d.appendChild(b);d.appendChild(n);d.appendChild(v);box.appendChild(d);});}$("relicTotal").textContent=fmt(state.relicValue);}
+function showPackIdle(note){var stage=$("packStage");stage.innerHTML="";var big=document.createElement("div");big.className="big";big.textContent="One pack. Four rarities.";var small=document.createElement("div");small.className="small";small.textContent=note||"Odds are set by the program itself, from the oracle randomness.";var odds=document.createElement("div");odds.className="odds";["Common 60 percent","Rare 25 percent","Epic 12 percent","Legendary 4 percent"].forEach(function(t){var sp=document.createElement("span");sp.textContent=t;odds.appendChild(sp);});var btn=document.createElement("button");btn.className="btn gold";btn.type="button";btn.id="packBtn";btn.textContent="Open pack · VRF draw";btn.addEventListener("click",openPack);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="The VRF randomness behind your draw appears here, read from your player account.";stage.appendChild(big);stage.appendChild(small);stage.appendChild(odds);stage.appendChild(btn);stage.appendChild(proof);}
+function showPackPending(){var stage=$("packStage");stage.innerHTML="";var spin=document.createElement("div");spin.className="spinner";spin.setAttribute("aria-hidden","true");var big=document.createElement("div");big.className="big";big.textContent="Draw requested, waiting for the VRF callback";var note=document.createElement("div");note.className="pendingnote";note.id="packPendingNote";note.textContent="Your open_pack request is onchain and pending. This page is polling your player account until the oracle callback writes the rarity.";stage.appendChild(spin);stage.appendChild(big);stage.appendChild(note);var cancelBtn=document.createElement("button");cancelBtn.className="btn ghost";cancelBtn.type="button";cancelBtn.id="packCancelBtn";cancelBtn.textContent="Cancel stuck request (cancel_pack)";cancelBtn.hidden=true;cancelBtn.addEventListener("click",cancelPackFlow);stage.appendChild(cancelBtn);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="Pending onchain · the VRF fee is not refunded if you cancel before the callback lands.";stage.appendChild(proof);}
+function showPackReveal(player){var relic=relicFromDraw(player.lastRarity,player.lastRandomness);state.relics.push(relic);state.relicValue+=relic.value;saveRelics();beep(1180,0.16,"triangle");var stage=$("packStage");stage.innerHTML="";var card=document.createElement("div");card.className="relic reveal";var badge=document.createElement("span");badge.className="rarity "+relic.cls;badge.textContent=relic.rarity;var rn=document.createElement("div");rn.className="rname";rn.textContent=relic.name;var rk=document.createElement("div");rk.className="rkind";rk.textContent="Vault Rush relic · drawn by MagicBlock VRF";var rv=document.createElement("div");rv.className="rval";rv.textContent=fmt(relic.value)+" credits";card.appendChild(badge);card.appendChild(rn);card.appendChild(rk);card.appendChild(rv);stage.appendChild(card);var btn=document.createElement("button");btn.className="btn gold";btn.type="button";btn.textContent="Open another pack · VRF draw";btn.addEventListener("click",openPack);stage.appendChild(btn);var shareBtn=document.createElement("button");shareBtn.className="btn ghost";shareBtn.type="button";shareBtn.textContent="Share this relic";shareBtn.addEventListener("click",function(){copyText(shareRelicText(relic),$("shareNote"));var n=$("galleryShareNote");if(n){n.textContent="Relic summary copied to your clipboard.";setTimeout(function(){n.textContent="";},2600);}});stage.appendChild(shareBtn);var proof=document.createElement("div");proof.className="proof mono";proof.id="proof";proof.textContent="VRF randomness · 0x"+hexOf(player.lastRandomness,16)+"… · rarity index "+player.lastRarity+" · pack #"+player.packsOpened+" on your player account";stage.appendChild(proof);feed("VRF callback landed. "+relic.rarity+" relic: "+relic.name+", worth "+fmt(relic.value)+" credits.");renderCollection();renderAcct();renderBoard();}
+function pollPackCallback(){if(!packFlow.polling)return;var elapsed=Date.now()-packFlow.startedAt;var note=$("packPendingNote");if(note)note.textContent="Waiting for the VRF callback, "+Math.round(elapsed/1000)+"s elapsed. Polling your player account on devnet.";if(elapsed>45000&&!packFlow.cancelShown){packFlow.cancelShown=true;var cb=$("packCancelBtn");if(cb)cb.hidden=false;}fetchPlayer().then(function(p){if(!packFlow.polling)return;if(p&&!p.pending&&p.packsOpened>packFlow.packsBefore){packFlow.polling=false;renderChain();showPackReveal(p);refreshBoard();return;}if(elapsed>150000){packFlow.polling=false;var cb2=$("packCancelBtn");if(cb2)cb2.hidden=false;if(note)note.textContent="No callback after 150 seconds, the request looks stuck. Use cancel_pack below to clear the pending request, then draw again. The VRF fee is not refunded.";feed("Pack request timed out with no callback. cancel_pack is available in the pack panel.");return;}setTimeout(pollPackCallback,3000);}).catch(function(){if(packFlow.polling)setTimeout(pollPackCallback,4000);});}
+function openPack(){if(packFlow.polling||chain.busy)return;if(!wallet.publicKey){feed("Connect a wallet first, pack draws are signed and settled onchain.");openWalletModal();return;}if(!W3){var p=$("proof");if(p)p.textContent="The Solana library did not load. Check your connection and reload the page.";return;}requestPackOnchain();}
+function requestPackOnchain(){chain.busy=true;ensurePlayer().then(function(){return fetchPlayer();}).then(function(p){if(p&&p.pending){packFlow.packsBefore=p.packsOpened;packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();chain.busy=false;pollPackCallback();throw new Error("__pending__");}packFlow.packsBefore=p?p.packsOpened:0;var seed=Math.floor(secureRandom()*256);var conn=baseConnection();var owner=pk(wallet.publicKey);var data=new Uint8Array(9);data.set(DISC.openPack,0);data[8]=seed;var ix=makeIx([[owner,true,true],[chain.playerPda,false,true],[pk(ORACLE_QUEUE),false,true],[programIdentityPda(),false,false],[pk(VRF_PROGRAM),false,false],[pk(SLOT_HASHES),false,false],[pk(SYSTEM_PROGRAM),false,false]],data);feed("Requesting a pack draw, approve open_pack in your wallet (high priority VRF, 0.0008 SOL fee).");return sendIx(conn,ix,"open_pack",true);}).then(function(){packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();chain.busy=false;pollPackCallback();}).catch(function(err){chain.busy=false;if(err&&err.message==="__pending__")return;var msg=friendlyErr(err);feed("Pack draw failed: "+msg);var stage=$("packStage");if(stage&&!packFlow.polling)showPackIdle("Last draw did not go through: "+msg);});}
+function cancelPackFlow(){if(chain.busy)return;chain.busy=true;var conn=baseConnection();var owner=pk(wallet.publicKey);var ix=makeIx([[owner,true,true],[chain.playerPda,false,true]],new Uint8Array(DISC.cancelPack));feed("Clearing the stuck request, approve cancel_pack in your wallet.");sendIx(conn,ix,"cancel_pack",true).then(function(){packFlow.polling=false;chain.busy=false;return fetchPlayer();}).then(function(){renderChain();showPackIdle("Pending request cleared onchain. You can draw again whenever you are ready.");feed("Pending pack request cancelled onchain.");}).catch(function(err){chain.busy=false;feed("cancel_pack failed: "+friendlyErr(err));});}
+function renderCollection(){var box=$("collection");if(!box)return;box.innerHTML="";
+var counts={Common:0,Rare:0,Epic:0,Legendary:0};var best=null;
+state.relics.forEach(function(r){if(counts[r.rarity]!=null)counts[r.rarity]++;if(!best||r.value>best.value)best=r;});
+var rc=$("rarityCounts");if(rc)rc.textContent="Common "+counts.Common+" · Rare "+counts.Rare+" · Epic "+counts.Epic+" · Legendary "+counts.Legendary;
+var br=$("bestRelic");if(br)br.textContent=best?(best.name+" · "+best.rarity+" · "+fmt(best.value)+" credits"):"No relics yet";
+if(state.relics.length===0){var e=document.createElement("div");e.className="empty";e.textContent="No relics yet. Your first pack is waiting above.";box.appendChild(e);}
+else{["Legendary","Epic","Rare","Common"].forEach(function(rar){var group=state.relics.filter(function(r){return r.rarity===rar;});if(!group.length)return;var head=document.createElement("div");head.className="grouphead";var gn=document.createElement("span");gn.className="gn";gn.textContent=rar;var gc=document.createElement("span");gc.className="gc";gc.textContent=group.length+(group.length===1?" relic":" relics")+" · "+fmt(group.reduce(function(s,r){return s+r.value;},0))+" credits";head.appendChild(gn);head.appendChild(gc);box.appendChild(head);group.slice().reverse().forEach(function(r){var d=document.createElement("div");d.className="mini";var b=document.createElement("span");b.className="rarity "+r.cls;b.textContent=r.rarity;var n=document.createElement("div");n.className="mn";n.textContent=r.name;var v=document.createElement("div");v.className="mv";v.textContent=fmt(r.value)+" credits";var sh=document.createElement("button");sh.className="btn ghost sm sharemini";sh.type="button";sh.textContent="Share relic";sh.addEventListener("click",function(){copyText(shareRelicText(r),$("galleryShareNote"));});d.appendChild(b);d.appendChild(n);d.appendChild(v);d.appendChild(sh);box.appendChild(d);});});}
+$("relicTotal").textContent=fmt(state.relicValue);}
 
 setInterval(function(){refreshBoard();},30000);
 setInterval(function(){if(!state.running){state.price=Math.max(12,state.price+(secureRandom()-0.5)*0.7);state.history.push(state.price);renderPrice();drawChart();}},900);
 
-/* ============ Onchain layer — live devnet program ============ */
+/* ============ Onchain layer, live devnet program ============ */
 var W3=window.solanaWeb3||null;
 var PROGRAM_ID_STR="GDCTM7AVo58kywzpf5RWVgQNAygo3W7ttm1a4pKGhEH8";
 var RPC_URL="https://api.devnet.solana.com";
@@ -561,7 +709,7 @@ function renderChain(){
   var p=chain.player;
   if(p===undefined){dot.className="dot pulse";title.textContent="Onchain player";detail.textContent="Checking your player account on devnet…";$("initPlayerBtn").hidden=true;}
   else if(p===null){dot.className="dot off";title.textContent="No player account yet";detail.textContent="Create your player account on the live program to open packs and settle runs. One transaction, a small devnet SOL rent deposit."+balTxt;$("initPlayerBtn").hidden=false;}
-  else{dot.className="dot pulse";title.textContent="Player account live on devnet";detail.textContent="Packs opened "+p.packsOpened+" · Best score "+fmt(p.bestScore)+" · Total profit "+(p.totalProfit>=0?"+":"")+fmt(p.totalProfit)+(p.pending?" · A pack draw is pending":"")+balTxt;$("initPlayerBtn").hidden=true;}
+  else{dot.className="dot pulse";title.textContent="Player account live on devnet";detail.textContent="Packs opened "+p.packsOpened+" · Best score "+fmt(p.bestScore)+" · Total profit "+(p.totalProfit>=0?"up ":"down ")+fmt(Math.abs(p.totalProfit))+(p.pending?" · A pack draw is pending":"")+balTxt;$("initPlayerBtn").hidden=true;}
 }
 function refreshChain(){
   if(!wallet.publicKey||!W3){renderChain();return Promise.resolve();}
@@ -569,13 +717,13 @@ function refreshChain(){
   return Promise.all([fetchPlayer(),baseConnection().getBalance(pk(wallet.publicKey)).catch(function(){return null;})]).then(function(res){
     chain.balance=res[1];renderChain();renderAcct();
     var p=chain.player;
-    if(p&&p.pending&&!packFlow.polling){packFlow.packsBefore=p.packsOpened;packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();pollPackCallback();feed("You already have a pack draw pending onchain — watching for its callback.");}
+    if(p&&p.pending&&!packFlow.polling){packFlow.packsBefore=p.packsOpened;packFlow.startedAt=Date.now();packFlow.polling=true;packFlow.cancelShown=false;showPackPending();pollPackCallback();feed("You already have a pack draw pending onchain, watching for its callback.");}
   }).catch(function(){renderChain();});
 }
 function ensurePlayer(){
   return fetchPlayer().then(function(p){
     if(p)return p;
-    feed("Creating your player account — approve init_player in your wallet.");
+    feed("Creating your player account, approve init_player in your wallet.");
     var owner=pk(wallet.publicKey);
     var ix=makeIx([[owner,true,true],[chain.playerPda,false,true],[pk(SYSTEM_PROGRAM),false,false]],new Uint8Array(DISC.initPlayer));
     return sendIx(baseConnection(),ix,"init_player",true).then(function(){return fetchPlayer();}).then(function(p2){renderChain();feed("Player account created on devnet. You are ready to play live.");return p2;});
@@ -586,7 +734,14 @@ function refreshBoard(){
   baseConnection().getProgramAccounts(pk(PROGRAM_ID_STR),{filters:[{dataSize:96}]}).then(function(list){
     var rows=[];
     list.forEach(function(item){try{var p=parsePlayer(item.account.data);if(!p)return;var owner=new W3.PublicKey(item.account.data.slice(8,40)).toBase58();rows.push({owner:owner,score:p.bestScore,packs:p.packsOpened});}catch(e){}});
+    var prevTop=boardRows.length?Math.max.apply(null,boardRows.map(function(r){return r.score;})):0;
+    var prevCount=boardRows.length;
+    var today=dayStamp(Date.now());
+    rows.forEach(function(r){boardSeen[r.owner]=today;});
+    storeSet("vr_board_seen_v1",boardSeen);
     boardRows=rows;renderBoard();
+    if(prevCount&&rows.length!==prevCount)feed("Leaderboard change. "+rows.length+" player accounts are now on the board.");
+    else if(prevTop&&rows.length){var newTop=Math.max.apply(null,rows.map(function(r){return r.score;}));if(newTop>prevTop)feed("Leaderboard change. A new best score of "+fmt(newTop)+" credits now tops the board.");}
   }).catch(function(){renderBoard();});
 }
 function waitForDelegation(runPda){
@@ -617,7 +772,7 @@ function prepareRunOnchain(){
   var btn=$("runBtn");btn.disabled=true;btn.textContent="Setting up onchain…";
   var runId=randomU64();
   chain.run={runId:runId,runPda:null,er:null};
-  setRunMsg("Setting up your run onchain. ","Approve start_run in your wallet — it creates your Run account on base.");
+  setRunMsg("Setting up your run onchain. ","Approve start_run in your wallet, it creates your Run account on base.");
   ensurePlayer().then(function(){
     var owner=pk(wallet.publicKey);
     chain.run.runPda=runPdaFor(chain.playerPda,runId);
@@ -625,7 +780,7 @@ function prepareRunOnchain(){
     var ix=makeIx([[owner,true,true],[chain.playerPda,false,true],[chain.run.runPda,false,true],[pk(SYSTEM_PROGRAM),false,false]],data);
     return sendIx(baseConnection(),ix,"start_run",true);
   }).then(function(){
-    setRunMsg("Run created on base. ","Now approve delegate_run — it moves the Run account to the Ephemeral Rollup.");
+    setRunMsg("Run created on base. ","Now approve delegate_run, it moves the Run account to the Ephemeral Rollup.");
     var owner=pk(wallet.publicKey);var runPda=chain.run.runPda;var pid=pk(PROGRAM_ID_STR);var del=pk(DELEGATION_PROGRAM);
     var buffer=W3.PublicKey.findProgramAddressSync([enc("buffer"),runPda.toBuffer()],pid)[0];
     var record=W3.PublicKey.findProgramAddressSync([enc("delegation"),runPda.toBuffer()],del)[0];
@@ -655,11 +810,11 @@ function finishRunOnchain(worth,gain){
   if(!run||!run.er){btn.disabled=false;btn.textContent="Run it again";setRunMsg("Run complete. ","Net worth "+fmt(worth)+" credits. No rollup session was attached, so nothing was settled onchain.");return;}
   chain.busy=true;btn.disabled=true;btn.textContent="Settling onchain…";
   var owner=pk(wallet.publicKey);
-  setRunMsg("Final bell. ","Submitting score "+fmt(score)+" on the rollup — approve submit_score in your wallet.");
+  setRunMsg("Final bell. ","Submitting score "+fmt(score)+" on the rollup, approve submit_score in your wallet.");
   var data=new Uint8Array(24);data.set(DISC.submitScore,0);data.set(u64le(score),8);data.set(i64le(profit),16);
   var ix=makeIx([[owner,true,true],[chain.playerPda,false,false],[run.runPda,false,true]],data);
   sendIx(run.er,ix,"submit_score",false).then(function(){
-    setRunMsg("Score submitted on the rollup. ","Now approve undelegate_run — it commits the run back to base.");
+    setRunMsg("Score submitted on the rollup. ","Now approve undelegate_run, it commits the run back to base.");
     var ix2=makeIx([[owner,true,true],[chain.playerPda,false,false],[run.runPda,false,true],[pk(MAGIC_PROGRAM),false,false],[pk(MAGIC_CONTEXT),false,true]],new Uint8Array(DISC.undelegateRun));
     return sendIx(run.er,ix2,"undelegate_run",false);
   }).then(function(){
@@ -672,7 +827,7 @@ function finishRunOnchain(worth,gain){
   }).then(function(){
     chain.busy=false;chain.run=null;btn.disabled=false;btn.textContent="Run it again";
     setRunMsg("Run complete and settled onchain. ","Net worth "+fmt(worth)+" credits, "+(gain>=0?"up ▲ ":"down ▼ ")+fmt(Math.abs(gain))+" on the run. Your player account and the board now show the settled totals.");
-    feed("Run settled onchain. Score "+fmt(score)+", profit "+(profit>=0?"+":"")+fmt(profit)+".");
+    feed("Run settled onchain. Score "+fmt(score)+", profit "+(profit>=0?"up ":"down ")+fmt(Math.abs(profit))+".");
     return refreshChain();
   }).then(function(){refreshBoard();}).catch(function(err){
     chain.busy=false;btn.disabled=false;btn.textContent="Run it again";
@@ -709,7 +864,7 @@ function renderWallet(){
   $("walletDot").className="dot "+(connected?"pulse":"off");
   $("walletDot").style.marginTop="6px";
   $("walletTitle").textContent=wallet.connecting?"Waiting for wallet approval…":(connected?"Connected on Solana devnet":"No wallet connected");
-  $("walletDetail").textContent=connected?"Linked to the live devnet program. Pack draws and run settlements are signed by this wallet.": "Connect to play live on devnet. Guest mode is look only — packs and runs are signed by your wallet.";
+  $("walletDetail").textContent=connected?"Linked to the live devnet program. Pack draws and run settlements are signed by this wallet.": "Connect to play live on devnet. Guest mode is look only, packs and runs are signed by your wallet.";
   var addr=$("walletAddr");addr.hidden=!connected;addr.textContent=wallet.publicKey||"";
   $("walletDisconnect").hidden=!connected;
   $("walletCopy").hidden=!connected;
@@ -741,7 +896,7 @@ function connectWith(entry,onlyIfTrusted){
     wallet.connecting=false;renderWallet();
     if(!onlyIfTrusted){
       var rejected=err&&(err.code===4001||/reject|declin|cancel/i.test(String(err.message||err)));
-      feed(rejected?"Wallet connection was declined. Guest mode is still fully playable.":"Could not connect "+entry.name+". Check the wallet is unlocked and set to devnet, then try again.");
+      feed(rejected?"Wallet connection was declined. Guest mode is still open for looking around.":"Could not connect "+entry.name+". Check the wallet is unlocked and set to devnet, then try again.");
       $("walletDetail").textContent=rejected?"You declined the connection request in "+entry.name+". Tap Connect wallet to try again, or keep playing in guest mode.":"Connection failed. Make sure "+entry.name+" is unlocked, then try again.";
     }
     return false;
@@ -757,7 +912,7 @@ function openWalletModal(){
       var n=document.createElement("span");n.textContent=pair[0];var s=document.createElement("span");s.className="st";s.textContent="Install →";a.appendChild(n);a.appendChild(s);box.appendChild(a);
     });
   }else{
-    $("walletModalText").textContent="Pick a wallet installed in this browser. It will ask you to approve the connection — Vault Rush only reads your public address.";
+    $("walletModalText").textContent="Pick a wallet installed in this browser. It will ask you to approve the connection, Vault Rush only reads your public address.";
     wallets.forEach(function(entry){
       var b=document.createElement("button");b.type="button";b.className="wopt";
       var n=document.createElement("span");n.textContent=entry.name;var s=document.createElement("span");s.className="st ok";s.textContent="Detected";b.appendChild(n);b.appendChild(s);
@@ -787,7 +942,7 @@ function tryEagerConnect(){
   if(!wallets.length)return;
   connectWith(wallets[0],true);
 }
-/* wallets often inject after page load — retry detection briefly */
+/* wallets often inject after page load, retry detection briefly */
 var eagerTries=0;var eagerTimer=setInterval(function(){eagerTries++;if(wallet.publicKey||eagerTries>10){clearInterval(eagerTimer);return;}if(detectWallets().length){clearInterval(eagerTimer);tryEagerConnect();}},300);
 
 $("walletBtn").addEventListener("click",handleConnectClick);
@@ -809,10 +964,17 @@ $("sellBtn").addEventListener("click",sell);
 $("packBtn").addEventListener("click",openPack);
 $("initPlayerBtn").addEventListener("click",function(){if(chain.busy||!wallet.publicKey)return;chain.busy=true;$("initPlayerBtn").disabled=true;ensurePlayer().then(function(){chain.busy=false;$("initPlayerBtn").disabled=false;}).catch(function(err){chain.busy=false;$("initPlayerBtn").disabled=false;feed("Player account creation failed: "+friendlyErr(err));});});
 $("chainRefresh").addEventListener("click",function(){refreshChain();refreshBoard();feed("Onchain state refreshed from devnet.");});
-Array.prototype.forEach.call(document.querySelectorAll(".chip"),function(chip){chip.addEventListener("click",function(){state.size=parseFloat(chip.getAttribute("data-size"));Array.prototype.forEach.call(document.querySelectorAll(".chip"),function(c){c.setAttribute("aria-pressed","false");});chip.setAttribute("aria-pressed","true");});});
+Array.prototype.forEach.call(document.querySelectorAll(".chip[data-size]"),function(chip){chip.addEventListener("click",function(){state.size=parseFloat(chip.getAttribute("data-size"));Array.prototype.forEach.call(document.querySelectorAll(".chip[data-size]"),function(c){c.setAttribute("aria-pressed","false");});chip.setAttribute("aria-pressed","true");});});
+Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"),function(chip){chip.addEventListener("click",function(){boardFilter=chip.getAttribute("data-filter");Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"),function(c){c.setAttribute("aria-pressed","false");});chip.setAttribute("aria-pressed","true");renderBoard();feed("Leaderboard filter changed to "+chip.textContent+".");});});
+function renderSoundBtn(){var b=$("soundBtn");if(!b)return;b.textContent=soundOn?"Sound on":"Sound off";b.setAttribute("aria-pressed",soundOn?"true":"false");}
+$("soundBtn").addEventListener("click",function(){soundOn=!soundOn;storeSet("vr_sound_v1",soundOn);renderSoundBtn();if(soundOn)beep(880,0.1,"triangle");feed(soundOn?"Sound turned on.":"Sound turned off.");});
+$("clearHistoryBtn").addEventListener("click",function(){runHistory=[];lastRunResult=null;saveRuns();renderHistory();var sb=$("shareRunBtn");if(sb)sb.hidden=true;feed("Run history cleared.");});
+$("shareRunBtn").addEventListener("click",function(){if(lastRunResult)copyText(shareRunText(lastRunResult),$("shareNote"));});
+renderSoundBtn();
+if(lastRunResult){var sb2=$("shareRunBtn");if(sb2)sb2.hidden=false;}
 window.addEventListener("resize",drawChart);
 
-renderPrice();renderAcct();renderBoard();renderCollection();renderWallet();drawChart();refreshBoard();
+renderPrice();renderAcct();renderBoard();renderCollection();renderHistory();restoreFeed();renderWallet();drawChart();refreshBoard();
 })();
 </script>
 </body>
